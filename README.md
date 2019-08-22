@@ -10,7 +10,7 @@ In this tutorial, we are going to show you how to download and lauch the score s
   * Enchant : `pip3 install numpy
   * Unidecode : `pip3 install unidecode`
 ## Download and installation
-1. Open a shell and clone this repository : `git clone https://github.com/raphraph1996/ScoreSoftware` (you need to use the login and password given in the appendix B).
+1. Open a shell and clone this repository : `git clone https://github.com/raphraph1996/ScoreSoftware.git` (you need to use the login and password given in the appendix B).
 2. Enter the Score application folder (`cd ScoreApplication`) and launch the install script (`bash install.sh`).
 ## Launching a model
 To launch the software by opening a shell, going to the location of the ScoreApplication folder and typing `python3 gui.py`
