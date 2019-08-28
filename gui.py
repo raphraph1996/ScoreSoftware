@@ -54,11 +54,22 @@ def computetitleScore(title):
 
 def computedescScore(desc):
     model = Doc2Vec.load('doc2vec')
-    vec_infer = model.infer_vector(desc)
+    print(desc)
+    if len(desc)>2 and len(desc)<192:
+        lamb=1
+    else:
+        lamb=2
+    print(lamb)
     tot = 0
-    for i in range(len(model.docvecs)):
-        tot += spatial.distance.cosine(vec_infer,model.docvecs[i])
-    return ((tot/len(model.docvecs)) - 0.38)/(1.23-0.38)
+    for i in range(1000):
+        vec_infer = model.infer_vector(desc)
+        l = model.docvecs.most_similar([vec_infer])
+        l = [ll[1] for ll in l]
+        tot += (1-lamb*np.mean(l))
+    if tot/1000 + 0.3 < 0:
+        return 0
+    else:
+        return tot/1000 + 0.3
 
 
 def computecatScore(desc,cat):
